@@ -1,2 +1,2 @@
 # mobile-login-and-singup-
-best singup page in react 
+best singup page in html 

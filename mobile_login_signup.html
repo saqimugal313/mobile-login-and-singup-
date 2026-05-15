@@ -1,0 +1,500 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #1A1A2E;
+    --accent: #E94560;
+    --accent2: #F5A623;
+    --surface: #F7F5F0;
+    --card: #FFFFFF;
+    --muted: #8A8A99;
+    --border: rgba(26,26,46,0.1);
+    --text: #1A1A2E;
+    --input-bg: #F2F0EB;
+  }
+
+  body { font-family: 'DM Sans', sans-serif; }
+
+  .device-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 1.5rem 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .phone {
+    width: 320px;
+    min-height: 580px;
+    background: var(--surface);
+    border-radius: 36px;
+    border: 2px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(26,26,46,0.12);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .notch {
+    width: 90px;
+    height: 22px;
+    background: var(--primary);
+    border-radius: 0 0 16px 16px;
+    margin: 0 auto;
+    margin-bottom: -4px;
+  }
+
+  .screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 24px 28px;
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .brand-dot {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-dot span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .brand-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--primary);
+    letter-spacing: 0.02em;
+  }
+
+  .screen-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--primary);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .screen-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  .field {
+    margin-bottom: 14px;
+  }
+
+  .field label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .input-row {
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border-radius: 12px;
+    padding: 0 14px;
+    border: 1.5px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .input-row:focus-within {
+    border-color: var(--accent);
+    background: #fff;
+  }
+
+  .input-row i {
+    font-size: 16px;
+    color: var(--muted);
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .input-row input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    padding: 11px 0;
+    outline: none;
+  }
+
+  .input-row input::placeholder {
+    color: #C0BDB5;
+  }
+
+  .forgot {
+    text-align: right;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    margin: -6px 0 18px;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid rgba(255,255,255,0.6);
+    border-right: 2px solid rgba(255,255,255,0.6);
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-text {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .social-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .social-btn {
+    flex: 1;
+    padding: 10px;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .g-icon { background: #EA4335; }
+  .a-icon { background: #000; }
+
+  .switch-link {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .switch-link a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .accent-stripe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    border-radius: 0 0 0 60px;
+    opacity: 0.08;
+  }
+
+  .terms-note {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.5;
+    margin-top: -10px;
+    margin-bottom: 14px;
+  }
+
+  .terms-note span {
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  .avatar-row {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .avatar-upload {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+    background: var(--input-bg);
+    border: 2px dashed #D0CEC7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+  }
+
+  .avatar-upload i {
+    font-size: 20px;
+    color: var(--muted);
+  }
+
+  .avatar-upload span {
+    font-size: 9px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .name-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .name-row .field {
+    flex: 1;
+  }
+
+  .strength-bar {
+    height: 3px;
+    background: var(--input-bg);
+    border-radius: 2px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+
+  .strength-fill {
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    border-radius: 2px;
+  }
+
+  .strength-label {
+    font-size: 10px;
+    color: var(--accent2);
+    font-weight: 600;
+    margin-top: 3px;
+  }
+</style>
+
+<h2 class="sr-only">Mobile login and signup screen mockups</h2>
+
+<div class="device-wrap">
+
+  <div>
+    <p class="phone-label">Sign In</p>
+    <div class="phone">
+      <div class="accent-stripe"></div>
+      <div style="background: var(--primary); height: 6px;"></div>
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="brand-mark">
+          <div class="brand-dot"><span>N</span></div>
+          <span class="brand-name">Nōva</span>
+        </div>
+
+        <div class="screen-title">Welcome<br><em>back.</em></div>
+        <p class="screen-subtitle">Sign in to your account</p>
+
+        <div class="field">
+          <label>Email</label>
+          <div class="input-row">
+            <i class="ti ti-mail" aria-hidden="true"></i>
+            <input type="text" placeholder="you@example.com" value="sarah@acme.co" readonly />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <div class="input-row">
+            <i class="ti ti-lock" aria-hidden="true"></i>
+            <input type="password" placeholder="••••••••" value="password" readonly />
+            <i class="ti ti-eye" aria-hidden="true" style="margin-left:4px; cursor:pointer;"></i>
+          </div>
+        </div>
+
+        <div class="forgot">Forgot password?</div>
+
+        <button class="btn-primary">Sign In</button>
+
+        <div class="divider">
+          <div class="divider-line"></div>
+          <span class="divider-text">or continue with</span>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="social-row">
+          <button class="social-btn">
+            <div class="social-icon g-icon">G</div>
+            Google
+          </button>
+          <button class="social-btn">
+            <div class="social-icon a-icon">
+              <i class="ti ti-brand-apple" style="font-size:13px;" aria-hidden="true"></i>
+            </div>
+            Apple
+          </button>
+        </div>
+
+        <div class="switch-link">
+          No account? <a>Create one →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p class="phone-label">Sign Up</p>
+    <div class="phone">
+      <div class="accent-stripe"></div>
+      <div style="background: var(--primary); height: 6px;"></div>
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="brand-mark">
+          <div class="brand-dot"><span>N</span></div>
+          <span class="brand-name">Nōva</span>
+        </div>
+
+        <div class="screen-title">Create<br><em>account.</em></div>
+        <p class="screen-subtitle">Join thousands of users today</p>
+
+        <div class="avatar-row">
+          <div class="avatar-upload">
+            <i class="ti ti-user-plus" aria-hidden="true"></i>
+            <span>Photo</span>
+          </div>
+        </div>
+
+        <div class="name-row">
+          <div class="field">
+            <label>First</label>
+            <div class="input-row">
+              <input type="text" placeholder="Sarah" readonly value="Sarah" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Last</label>
+            <div class="input-row">
+              <input type="text" placeholder="Chen" readonly value="Chen" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <div class="input-row">
+            <i class="ti ti-mail" aria-hidden="true"></i>
+            <input type="text" placeholder="you@example.com" readonly value="sarah@acme.co" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <div class="input-row" style="border-color: var(--accent2);">
+            <i class="ti ti-lock" aria-hidden="true"></i>
+            <input type="password" placeholder="••••••••" value="password" readonly />
+            <i class="ti ti-eye" aria-hidden="true" style="margin-left:4px; cursor:pointer;"></i>
+          </div>
+          <div class="strength-bar"><div class="strength-fill"></div></div>
+          <div class="strength-label">Medium strength</div>
+        </div>
+
+        <div class="terms-note">
+          By signing up you agree to our <span>Terms of Service</span> and <span>Privacy Policy</span>
+        </div>
+
+        <button class="btn-primary">Create Account</button>
+
+        <div class="switch-link">
+          Already have an account? <a>Sign in →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
